@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import { BsArrowLeft } from "react-icons/bs";
 
 const Login = () => {
 
@@ -27,21 +28,30 @@ const Login = () => {
 
 
     return ( 
-        <div className="formBorder">
-            <form onSubmit={handleSubmit} className="formAlign">
-                {/* username  */}
-            <label htmlFor="username">Username</label>
-            <input type="text" value={formData.username} placeholder="enter username" name="username" onChange={handleChange}/>
-                {/* email */}
-            <label htmlFor="email">Email</label>
-            <input type="email" value={formData.email} placeholder="enter email"  name="email" onChange={handleChange}/>
-                {/* password  */}
-            <label htmlFor="pwd">Password</label>
-            <input type="password" value={formData.password} name="password" onChange={handleChange}/>
-                <button type="submit">Login</button>
-            </form>
+        <div >
+            <section className="formBorder">
+                <header className="headerSpread">
+                    <h4><a href="/"> <BsArrowLeft/>BACK</a></h4>
+                    <h4><a href="/">Sign Up</a></h4>
+                </header>
+            <div className="formCoverOne">
+                <form onSubmit={handleSubmit} className="formAlign">
+                    {/* username  */}
+                <label htmlFor="username">Username</label>
+                <input type="text" value={formData.username} placeholder="enter username" name="username" onChange={handleChange}/>
+                    {/* email */}
+                <label htmlFor="email">Email</label>
+                <input type="email" value={formData.email} placeholder="enter email"  name="email" onChange={handleChange}/>
+                    {/* password  */}
+                <label htmlFor="pwd">Password</label>
+                <input type="password" value={formData.password} name="password" onChange={handleChange}/>
+                    <button type="submit" className="signupBtn">SIGN UP</button>
+                </form>
+                    <p className="acctLink">already have an account <a href="/">login</a></p>
+            </div>
+            </section>
+            
 
-           {/* {people.map((person) => person.name)} */}
         </div>
         
      );

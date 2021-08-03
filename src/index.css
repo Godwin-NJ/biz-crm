@@ -6,19 +6,58 @@
   display: flex;
   flex-direction: column;
   width: 50vw;
-  margin: 20vh auto;
+  margin: 0px auto;
+  margin-top: 20px;
 }
 .formAlign input{
   margin-bottom: 5px;
   padding: 5px;
 }
 .formAlign button{
-  margin-top: 10px;
+  margin-top: 50px;
   padding: 5px;
 }
 .formBorder{
+  /* How about border: 10px solid transparent */
   border: 0.1px solid black;
+  border-top-left-radius: 30px;
+  border-top-right-radius:30px;
+  border-bottom: none;
   width: 65vw;
-  height: 60vh;
+  height: 70vh;
   margin: 0 auto;
+  margin-top: 15px;
+}
+.signupBtn{
+  height: 6vh;
+  border-radius: 10px;
+}
+
+form input{
+  outline: none;
+  border: none;
+  border-bottom: 0.5px solid black;
+  margin-top: 5px;
+}
+form label {
+  margin-top: 15px;
+  padding-top: 5px;
+}
+.formCoverOne {
+  border: 0.1px solid black;
+ height: 70vh;
+ margin-top: 75px;
+ border-radius: 30px;
+}
+.acctLink{
+  margin-top: 50px;
+  margin-left:85px
+}
+.headerSpread{
+  display: flex;
+  flex-direction: row;
+  margin-top: 55px;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
 }
