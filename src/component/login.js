@@ -3,10 +3,12 @@ import { BsArrowLeft } from "react-icons/bs";
 
 const Login = () => {
 
+        const img = "https://spng.pngfind.com/pngs/s/5-52097_avatar-png-pic-vector-avatar-icon-png-transparent.png"
+
         const[formData, setFormData] = useState({
             email : "",
             password : "",
-            username : ""
+            // username : ""
         })
         const [people, setPeople] = useState([])
 
@@ -32,22 +34,24 @@ const Login = () => {
             <section className="formBorder">
                 <header className="headerSpread">
                     <h4><a href="/"> <BsArrowLeft/>BACK</a></h4>
-                    <h4><a href="/">Sign Up</a></h4>
+                    <h4><a href="/">Login</a></h4>
                 </header>
             <div className="formCoverOne">
+                <img className="userImage" src={img} alt="Avatar"></img>
+                <h2 className="welcome">Welcome!</h2>
                 <form onSubmit={handleSubmit} className="formAlign">
                     {/* username  */}
-                <label htmlFor="username">Username</label>
-                <input type="text" value={formData.username} placeholder="enter username" name="username" onChange={handleChange}/>
+                {/* <label htmlFor="username">Username</label>
+                <input type="text" value={formData.username} placeholder="enter username" name="username" onChange={handleChange}/> */}
                     {/* email */}
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">Username | email</label>
                 <input type="email" value={formData.email} placeholder="enter email"  name="email" onChange={handleChange}/>
                     {/* password  */}
                 <label htmlFor="pwd">Password</label>
                 <input type="password" value={formData.password} name="password" onChange={handleChange}/>
-                    <button type="submit" className="signupBtn">SIGN UP</button>
+                    <button type="submit" className="signupBtn">LOGIN</button>
                 </form>
-                    <p className="acctLink">already have an account <a href="/">login</a></p>
+                    <p className="acctLink">already have an account <a href="/">Sign Up</a></p>
             </div>
             </section>
             

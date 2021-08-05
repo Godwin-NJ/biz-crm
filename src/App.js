@@ -1,10 +1,13 @@
 import Login from './component/login'
+import Signup from './component/signup'
+
 
 function App() {
   return (
     <div className="App">
       <Login/>
-      {/* <h2>Hello world</h2> */}
+      {/* <Signup /> */}
+      {/* style={{marginTop:"50px"}} */}
     </div>
   );
 }
