@@ -41,13 +41,24 @@ const Signup = () => {
                 <form onSubmit={handleSubmit} className="formAlign">
                     {/* username  */}
                 <label htmlFor="username">Username</label>
-                <input type="text" value={formData.username} placeholder="enter username" name="username" onChange={handleChange}/>
+                <input className='bottomBorder' 
+                        type="text" value={formData.username} 
+                        placeholder="enter username" 
+                        name="username" 
+                        onChange={handleChange}/>
                     {/* email */}
                 <label htmlFor="email">Email</label>
-                <input type="email" value={formData.email} placeholder="enter email"  name="email" onChange={handleChange}/>
+                <input className='bottomBorder' 
+                       type="email" value={formData.email} 
+                       placeholder="enter email"  
+                       name="email" 
+                       onChange={handleChange}/>
                     {/* password  */}
                 <label htmlFor="pwd">Password</label>
-                <input type="password" value={formData.password} name="password" onChange={handleChange}/>
+                <input className='bottomBorder' 
+                       type="password" value={formData.password} 
+                       name="password" 
+                       onChange={handleChange}/>
                     <button type="submit" className="signupBtn">SIGN UP</button>
                 </form>
                     <p className="acctLink">already have an account <a href="/">login</a></p>

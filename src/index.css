@@ -2,9 +2,11 @@
   margin:0px;
   padding:0px
 }
-body{
+ /* uncomment this to gv ur login and sugnup page shape */
+/* body{
   background-color: rgb(236, 192, 110);
-}
+} */
+
 .formAlign{
   display: flex;
   flex-direction: column;
@@ -29,7 +31,7 @@ body{
   width: 65vw;
   height: 70vh;
   margin: 0 auto;
-  margin-top: 15px;
+  margin-top: 20px;
   background-color: orange;
 }
 .headerSpread a{
@@ -41,7 +43,8 @@ body{
   border-radius: 10px;
 }
 
-form input{
+/* form input - this makes my border have only bottom border*/
+.bottomBorder{
   outline: none;
   border: none;
   border-bottom: 0.5px solid black;
@@ -84,4 +87,65 @@ form label {
   margin-left: 160px;
   /* margin-top: -22px; */
   padding-top: 20px;
+}
+
+/* .blackBtn{
+  background-color: black;
+  border-color: black;
+}
+.whiteBtn{
+  background-color: blue;
+  border-color: blue;
+} */
+/* .selectedDev :checked{
+  background-color: black;
+  border-color: tomato;
+} */
+/* this not working */
+input[type="radio"]:checked {
+  /* box-shadow: 0 0 0 3px orange; */
+  background-color: black;
+  /* color: black; */
+}
+input[type="radio"]{
+  border: 0;
+  width:10%;
+  height: 2em;
+  color: black;
+  background-color: black;
+}
+.devName{
+  /* border:1px solid transparent ; */
+  padding: 6px;
+  
+}
+
+/* .crmBody{
+  border: 2px solid black;
+} */
+
+.crmBlock{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10%;
+}
+.radioBlock{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* border: 2px solid black; */
+  width: 40vw;
+  margin: 20px auto;
+}
+
+
+.rBTN label{
+  position: absolute;
+  margin: 8px;
+  margin-top: -0.1px;
+}
+
+.addDev{
+  padding: 3%;
+  width: 10em;
 }
