@@ -121,7 +121,7 @@ input[type="radio"]{
 }
 
 /* .crmBody{
-  border: 2px solid black;
+  background-color: burlywood;
 } */
 
 .crmBlock{
@@ -148,4 +148,34 @@ input[type="radio"]{
 .addDev{
   padding: 3%;
   width: 10em;
+  border-radius: 15%;
+}
+
+/* dev Body section */
+.devInfo {
+  margin: 0 auto;
+  margin-top: 2em;
+  display: flex;
+  flex-direction: row;
+  width: 45%;
+  height: 3em;
+  padding: 1.5%;
+  border: 2px solid black;
+  /* border-radius: 5%; */
+  /* justify-content: center; */
+}
+
+.devPara {
+  margin-top: 15px;
+  border: 1px solid transparent;
+  background-color: palegreen;
+  padding: 2px;
+}
+.devRmv button {
+  padding: 8px;
+  font-size: large;
+}
+.devRmv {
+  position: absolute;
+  left: 29em;
 }

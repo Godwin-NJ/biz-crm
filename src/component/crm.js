@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import { BsTrash } from "react-icons/bs";
 
 const Crm = () => {
 
@@ -45,6 +46,7 @@ const Crm = () => {
                 <input type="text" 
                     className="devName"
                     placeholder="tech name" 
+                    maxLength="20"
                     name="DevName" 
                     value={crmForm.DevName} 
                     onChange={staff}
@@ -105,7 +107,7 @@ const Crm = () => {
                             <label htmlFor="dbadmin">Db-Admin</label>
                         </div>
                 </section>
-                <button className="addDev">+ Add Dev</button>
+                <button className="addDev" style={{backgroundColor:'blue', color:'white'}}>+ Add Dev</button>
             </form>
             </section>
                 {/* display form data  */}
@@ -113,10 +115,16 @@ const Crm = () => {
                 {data.map((person) => {
                     const{role,DevName,id} = person
                     return(
-                        <div key={id}>
-                            <h2>{DevName}</h2>
-                            <h2>{role}</h2>
-                            <button onClick={() => removeDev(id)}>btn</button>
+                        <div key={id} className="devInfo">
+                            <section >
+                                <h4>{DevName}</h4>
+                                <p className="devPara">#{role}</p>
+                            </section>
+                            <section className="devRmv">
+                                <button onClick={() => removeDev(id)}>
+                                    <BsTrash />
+                                </button>
+                            </section>
                         </div>
                     )
                 })}
