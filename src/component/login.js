@@ -33,7 +33,7 @@ const Login = () => {
                setPeople([...people, newFormData])
                setFormData({email : "",password : "",username : ""})
             }
-        } 
+        }
 
 
     return ( 
