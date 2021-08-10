@@ -1,5 +1,9 @@
 import React,{useState} from 'react'
 import { BsArrowLeft } from "react-icons/bs";
+import Crm from './crm'
+import {
+    Link
+  } from "react-router-dom";
 
 const Login = () => {
 
@@ -18,6 +22,8 @@ const Login = () => {
             setFormData({...formData, [name] : value})
         }
 
+        const [login, setLogin] = useState(false)
+
 
         const handleSubmit = (e) => {
             e.preventDefault()
@@ -31,12 +37,13 @@ const Login = () => {
 
     return ( 
         <div >
-            <section className="formBorder">
+            {login ?
+                <section className="formBorder">
                 <header className="headerSpread">
-                    <h4><a href="/"> <BsArrowLeft/>BACK</a></h4>
-                    <h4><a href="/">Login</a></h4>
+                    <h4><Link to="/signup"> <BsArrowLeft/>BACK</Link></h4>
+                    <h4><Link to="/">Login</Link></h4>
                 </header>
-            <div className="formCoverOne">
+              <div className="formCoverOne">
                 <img className="userImage" src={img} alt="Avatar"></img>
                 <h2 className="welcome">Welcome!</h2>
                 <form onSubmit={handleSubmit} className="formAlign">
@@ -59,11 +66,14 @@ const Login = () => {
                        onChange={handleChange}/>
                     <button type="submit" className="signupBtn">LOGIN</button>
                 </form>
-                    <p className="acctLink">already have an account <a href="/">Sign Up</a></p>
+                    <p className="acctLink">already have an account <Link to="/signup">Sign Up</Link></p>
             </div>
             </section>
-            
 
+                : <Crm />
+            }
+            
+           
         </div>
         
      );

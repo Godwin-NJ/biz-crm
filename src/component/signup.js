@@ -1,5 +1,8 @@
 import React,{useState} from 'react'
 import { BsArrowLeft } from "react-icons/bs";
+import {
+    Link
+  } from "react-router-dom";
 
 const Signup = () => {
 
@@ -33,8 +36,8 @@ const Signup = () => {
         <div >
             <section className="formBorder">
                 <header className="headerSpread">
-                    <h4><a href="/"> <BsArrowLeft/>BACK</a></h4>
-                    <h4><a href="/">Sign Up</a></h4>
+                    <h4><Link to="/"> <BsArrowLeft/>BACK</Link></h4>
+                    <h4><Link to="/signup">Sign Up</Link></h4>
                 </header>
             <div className="formCoverOne">
                 <img className="userImage" src={img} alt="Avatar"></img>
@@ -61,11 +64,10 @@ const Signup = () => {
                        onChange={handleChange}/>
                     <button type="submit" className="signupBtn">SIGN UP</button>
                 </form>
-                    <p className="acctLink">already have an account <a href="/">login</a></p>
+                    <p className="acctLink">already have an account <Link to="/">login</Link></p>
             </div>
             </section>
             
-
         </div>
         
      );

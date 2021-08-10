@@ -3,9 +3,9 @@
   padding:0px
 }
  /* uncomment this to gv ur login and sugnup page shape */
-/* body{
+body{
   background-color: rgb(236, 192, 110);
-} */
+}
 
 .formAlign{
   display: flex;
