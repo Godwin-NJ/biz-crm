@@ -22,7 +22,8 @@ const Login = () => {
             setFormData({...formData, [name] : value})
         }
 
-        const [login, setLogin] = useState(false)
+            // this switches between crm and login 
+        const [login, setLogin] = useState(true)
 
 
         const handleSubmit = (e) => {
