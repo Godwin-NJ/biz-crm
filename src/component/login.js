@@ -1,20 +1,24 @@
 import React,{useState} from 'react'
 import { BsArrowLeft } from "react-icons/bs";
-import Crm from './crm'
+// import Crm from './crm'
 import {
-    Link
+    Link, Redirect
   } from "react-router-dom";
+import axios from 'axios'
 
 const Login = () => {
+        // const [token, setToken] = useState(localStorage.getItem('token'))
+        const [token, setToken] = useState(null)
 
-        const img = "https://spng.pngfind.com/pngs/s/5-52097_avatar-png-pic-vector-avatar-icon-png-transparent.png"
+        // const img = "https://spng.pngfind.com/pngs/s/5-52097_avatar-png-pic-vector-avatar-icon-png-transparent.png"
 
+        //const token = localStorage.getItem('token')
         const[formData, setFormData] = useState({
             email : "",
             password : "",
             // username : ""
         })
-        const [people, setPeople] = useState([])
+        const [error, setError] = useState("")
 
         const handleChange = (e) => {
             const name = e.target.name;
@@ -23,57 +27,85 @@ const Login = () => {
         }
 
             // this switches between crm and login 
-        const [login, setLogin] = useState(true)
+        // const [loginData, setLoginData] = useState(false)
 
 
-        const handleSubmit = (e) => {
-            e.preventDefault()
-            if(formData.username && formData.email && formData.password){
-               const newFormData = {...formData, id : new Date().getTime().toString()}
-               setPeople([...people, newFormData])
-               setFormData({email : "",password : "",username : ""})
+        const handleSubmit = async (e) => {
+            e.preventDefault();
+            
+            try {
+                const {data} = await axios.post('/crm/v1/auth/login', formData)             
+                console.log(data)
+                const userData = localStorage.setItem('token', data.token)
+                if(!userData){
+                    console.log('user data is wrong')
+                }
+                setToken(localStorage.getItem('token'))
+            } catch (error) {
+                setError(error.response.data.msg)
+                setTimeout(() => {
+                    setError("")
+                }, 5000);
             }
+            // const {data} = await axios.post('/crm/v1/auth/login', formData)             
+            // console.log(data)
+            // const userData = localStorage.setItem('token', data.token)
+            // if(!userData){
+            //     console.log('user data is wrong')
+            // }
+            // setToken(localStorage.getItem('token'))
+            // setToken(userData)
+            // setFormData({email:"",password:""})
+            // if(formData.email && formData.password){
+            //    const newFormData = {...formData, id : new Date().getTime().toString()}
+            //    setPeople([...people, newFormData])
+            // //situation were data is correct switch to crm page using setLoginData(false)
+            // //    setLoginData(false)
+            //    setFormData({email : "",password : "",username : ""})
+            // }
+        }
+
+        if(token !==null){
+            return <Redirect to="/dashboard" />
         }
 
 
     return ( 
         <div >
-            {login ?
                 <section className="formBorder">
                 <header className="headerSpread">
                     <h4><Link to="/signup"> <BsArrowLeft/>BACK</Link></h4>
-                    <h4><Link to="/">Login</Link></h4>
-                </header>
+                    <h4><Link to="/">SIGN-UP</Link></h4>
+                </header>                                                                               
               <div className="formCoverOne">
-                <img className="userImage" src={img} alt="Avatar"></img>
+                {/* <img className="userImage" src={img} alt="Avatar"></img> */}
                 <h2 className="welcome">Welcome!</h2>
                 <form onSubmit={handleSubmit} className="formAlign">
-                    {/* username  */}
-                {/* <label htmlFor="username">Username</label>
-                <input type="text" value={formData.username} placeholder="enter username" name="username" onChange={handleChange}/> */}
+                    {error && <span className="errorTextColor">{error}</span>}                
                     {/* email */}
-                <label htmlFor="email">Username | email</label>
+                <label htmlFor="email">Email</label>
                 <input className="bottomBorder" 
                        type="email" value={formData.email} 
                        placeholder="enter email"  
                        name="email" 
-                       onChange={handleChange}/>
+                       onChange={handleChange}
+                />
                     {/* password  */}
                 <label htmlFor="pwd">Password</label>
                 <input className="bottomBorder" 
                        type="password" 
                        value={formData.password} 
                        name="password" 
-                       onChange={handleChange}/>
+                       onChange={handleChange}
+                    />
                     <button type="submit" className="signupBtn">LOGIN</button>
                 </form>
-                    <p className="acctLink">already have an account <Link to="/signup">Sign Up</Link></p>
+                    <p className="acctLinkLogin">already have an account <Link to="/signup">Sign Up</Link></p>
             </div>
             </section>
 
-                : <Crm />
-            }
-            
+                {/* for the data to switch to crm page , an authentication  
+               needs to happen with the back-end data  */}
            
         </div>
         

@@ -1,15 +1,22 @@
 import Login from './component/login'
 import Signup from './component/signup'
-// import Crm from './component/crm'
-import './App.css'
+import Crm from './component/crm'
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import { useState } from 'react';
 
 
 function App() {
+
+  const[token, setToken] = useState(null)
+
+  if(!token){
+    <Login setToken={setToken} />
+  }
+
   return (
     <div className="App">
       <Router>
@@ -18,7 +25,7 @@ function App() {
             <Login />
           </Route>
           <Route exact path="/signup" component={Signup} />
-            {/* <Crm /> */}
+          <Route exact path="/dashboard" component={Crm} />
         </Switch>
       </Router>
     </div>

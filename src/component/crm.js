@@ -1,13 +1,16 @@
 import {useState} from 'react'
 import { BsTrash } from "react-icons/bs";
+import { Redirect } from 'react-router';
+import '../component/crm.css'
 
-const Crm = () => {
+const Crm = () => { 
 
+    const [token, setToken] = useState(localStorage.getItem('token'))
     const [crmForm , setCrmForm] = useState({DevName:''})
     const[devRole, setDevRole] = useState({})
     const[data, setData] = useState([])
     // const[color, setColor] = useState('#004040')
-
+            
     const staff = (e) => {
         const value = e.target.value
         const name = e.target.name
@@ -39,8 +42,17 @@ const Crm = () => {
         // console.log('rmv')
     }
 
+    const handleLogout = ()=>{
+        localStorage.removeItem('token')
+        setToken(localStorage.getItem('token'))
+    }
+
+    if(token === null){
+        return <Redirect to="/" />
+    }
     return ( 
         <div className="crmBody">
+        <button className="crmLogOut" onClick={handleLogout}>Log-out</button>
         <section className="crmBlock">
             <form onSubmit={devProfile}>
                 <input type="text" 
@@ -55,8 +67,7 @@ const Crm = () => {
                 <section className="radioBlock">
                 <div className="rBTN">
                     <input type="radio" 
-                        className="selectedDev"
-                        checked={devRole === 'developer'}  
+                        className="selectedDev" 
                         id="developer"
                         name="role" 
                         value='developer' 
@@ -69,7 +80,6 @@ const Crm = () => {
                  <div className="rBTN">
                     <input type="radio" 
                         className="selectedDev"
-                        checked={devRole === 'designer'}  
                         id="designer"
                         name="role" 
                         value='designer'
@@ -83,8 +93,7 @@ const Crm = () => {
                     <div className="rBTN">
                         <input 
                             type="radio"  
-                            className="selectedDev"
-                            checked={devRole === 'devops'}  
+                            className="selectedDev"  
                             id="devops"
                             name="role" 
                             value='devops'
@@ -97,7 +106,6 @@ const Crm = () => {
                         <div className="rBTN">
                             <input type="radio" 
                                 className="selectedDev" 
-                                checked={devRole === 'dbadmin'}
                                 id="dbadmin"
                                 name="role" 
                                 value='dbadmin' 
@@ -110,6 +118,7 @@ const Crm = () => {
                 <button className="addDev" style={{backgroundColor:'blue', color:'white'}}>+ Add Dev</button>
             </form>
             </section>
+            
                 {/* display form data  */}
             <div>
                 {data.map((person) => {
@@ -136,5 +145,5 @@ const Crm = () => {
 
 
 // challenges -> radio btn not getting background color 
- 
+
 export default Crm;

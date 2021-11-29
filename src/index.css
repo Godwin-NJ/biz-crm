@@ -4,7 +4,11 @@
 }
  /* uncomment this to gv ur login and sugnup page shape */
 body{
-  background-color: rgb(236, 192, 110);
+  background-color: rgb(207, 197, 176);
+}
+
+.errorTextColor{
+  color:crimson
 }
 
 .formAlign{
@@ -31,15 +35,22 @@ body{
   width: 65vw;
   height: 70vh;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 5%;
   background-color: orange;
 }
+
+/* .formBorder:hover.formCoverOne,
+   .formBorder:focus.formCoverOne {
+      transform: scale(1.2);
+   } */
 .headerSpread a{
   color: white;
   text-decoration: none;
 }
 .signupBtn{
   height: 6vh;
+  position:relative;
+  top: -30px;
   border-radius: 10px;
 }
 
@@ -56,23 +67,40 @@ form label {
 }
 .formCoverOne {
   border: 0.1px solid transparent;
- height: 70vh;
- margin-top: 75px;
+ /* height: 70vh; */
+ width: 100% ;
+ height: 100% ;
+ margin-top: 25px;
  border-radius: 30px;
+ position:relative;
+ overflow: auto;
+ /* overflow: scroll;  */
+ /* overflow-x:auto; */
  /* background-color: rgb(248,248,255); */
  background-color: white;
- margin-left:-2.5px;
- margin-right:-2.5px
+ /* left: 1px; */
+ margin-left:-1px;
+ /* margin-right:10px */
  /* width: 72vw; */
+ /* padding-right: 10px; */
 }
-.acctLink{
-  margin-top: 40px;
-  margin-left:90px
+.acctLinkLogin{
+  position:relative;
+  top: 5vh;
+  font-size: large;
+  /* margin-top: 40px; */
+  margin-left:50px
+}
+.acctLinkRegister{
+  position:relative;
+  /* top: -7px; */
+  /* margin-top: 40px; */
+  margin-left:55px
 }
 .headerSpread{
   display: flex;
   flex-direction: row;
-  margin-top: 55px;
+  margin-top: 40px;
   justify-content: space-between;
   margin-left: 20px;
   margin-right: 20px;
@@ -89,46 +117,33 @@ form label {
   padding-top: 20px;
 }
 
-/* .blackBtn{
-  background-color: black;
-  border-color: black;
-}
-.whiteBtn{
-  background-color: blue;
-  border-color: blue;
-} */
-/* .selectedDev :checked{
-  background-color: black;
-  border-color: tomato;
-} */
-/* this not working */
-input[type="radio"]:checked {
-  /* box-shadow: 0 0 0 3px orange; */
-  background-color: black;
-  /* color: black; */
-}
+
 input[type="radio"]{
   border: 0;
   width:10%;
   height: 2em;
-  color: black;
+  /* color: black; */
   background-color: black;
 }
+
+/* this not working */
+input[type="radio"]:checked{
+  /* box-shadow: 0 0 0 3px orange; */
+  background-color: #3a4626;
+  /* color: black; */
+}
+
 .devName{
   /* border:1px solid transparent ; */
   padding: 6px;
   
 }
 
-/* .crmBody{
-  background-color: burlywood;
-} */
-
 .crmBlock{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 10%;
+  /* margin-top: 10%; */
 }
 .radioBlock{
   display: grid;
@@ -156,17 +171,17 @@ input[type="radio"]{
   margin: 0 auto;
   margin-top: 2em;
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   width: 45%;
   height: 3em;
   padding: 1.5%;
   border: 2px solid black;
   /* border-radius: 5%; */
-  /* justify-content: center; */
+  justify-content: space-between;
 }
 
 .devPara {
-  margin-top: 15px;
+  /* margin-top: 15px; */
   border: 1px solid transparent;
   background-color: palegreen;
   padding: 2px;
@@ -175,7 +190,44 @@ input[type="radio"]{
   padding: 8px;
   font-size: large;
 }
-.devRmv {
-  position: absolute;
-  left: 29em;
+
+
+@media (min-width: 768px) {
+  .formBorder{
+    width: 55vw;
+  }
+  .devInfo{
+    width:40%
+  }
 }
+  @media (min-width: 992px) {
+    .formBorder{
+      width: 50vw;
+      /* overflow: hidden; */
+    }
+    .formAlign{
+      width:45vw
+    }
+    .devInfo{
+      width:35%;
+      position: relative;
+      right: 5vw;
+    }
+  }
+
+    @media (min-width: 1200px) {
+    .formBorder{
+      width:40vw
+    }
+    .formAlign{
+      width:35vw
+    }
+    .devInfo{
+      width: 27%;
+      position: relative;
+      right: 7vw;
+    }
+  }
+  /* .formCoverOne{
+    margin-left: -0.7px;
+  } */
